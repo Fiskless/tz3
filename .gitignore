@@ -97,7 +97,7 @@ local_settings.py
 db.sqlite3
 media/
 .vscode
-.idea
+.idea/
 Thumbs.db
 DS_Store
 avatars/
