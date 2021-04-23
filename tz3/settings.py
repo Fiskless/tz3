@@ -122,5 +122,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-MEDIA_URL = '/avatars/'
+MEDIA_URL = '/human/avatars/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'human/avatars')
+
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 10
+}
