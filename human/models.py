@@ -13,6 +13,7 @@ class Human(models.Model):
     age = models.PositiveSmallIntegerField('Возраст')
     gender = models.CharField(max_length=5, choices=GENDER)
 
+
     def __str__(self):
         return f'{self.first_name} {self.second_name}'
 

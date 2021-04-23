@@ -1,8 +1,9 @@
 from django.urls import path
 from . import views
 
-app_name = "human"
+app_name = "match"
 
 urlpatterns = [
-    # path('human/', views.HumanList.as_view()),
+    path('', views.MatchList.as_view()),
+    path('<int:pk>', views.MatchRetrieve.as_view()),
 ]

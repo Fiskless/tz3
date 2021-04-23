@@ -6,16 +6,15 @@ from rest_framework.parsers import MultiPartParser
 
 
 class HumanList(generics.ListCreateAPIView):
-    media_type = 'multipart/form - data'
+    parser_classes = [MultiPartParser]
     serializer_class = HumanSerializer
     queryset = Human.objects.all()
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
 
 class HumanRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
-
+    
     serializer_class = HumanSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    queryset = Human.objects.all()
 
-    def get_queryset(self):
-        return Human.objects.filter(pk=self.kwargs['pk'])

@@ -1,6 +1,7 @@
 from django.db import models
+from human.models import Human
 
-# Create your models here.
+
 class Match(models.Model):
 
     GENDER = [
@@ -11,6 +12,13 @@ class Match(models.Model):
     second_name = models.CharField('Фамилия', max_length=20)
     age = models.PositiveSmallIntegerField('Возраст')
     gender = models.CharField(max_length=5, choices=GENDER)
+    human = models.OneToOneField(
+        Human,
+        on_delete=models.CASCADE,
+        related_name='match',
+        blank=True,
+        null=True
+    )
 
     def __str__(self):
         return f'{self.first_name} {self.second_name}'
